@@ -1,5 +1,6 @@
 package com.companyname.serverwebapi.service;
 
+import com.companyname.serverwebapi.model.ContainerActionRequest;
 import com.companyname.serverwebapi.utils.Constants;
 import com.companyname.serverwebapi.utils.ShellCommandExecutor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,6 +26,12 @@ public class DockerService {
             }
         }
         return containers;
+    }
+
+    public String executeDockerContainerAction(ContainerActionRequest request) {
+        String command = "docker " + request.getCommand() + " " + request.getContainerName();
+        ShellCommandExecutor.executeShellCommand(command);
+        return "Done";
     }
 
 
