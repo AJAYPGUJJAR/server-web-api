@@ -1,5 +1,6 @@
 package com.companyname.serverwebapi.service;
 
+import com.companyname.serverwebapi.utils.Constants;
 import com.companyname.serverwebapi.utils.ShellCommandExecutor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.List;
 public class DockerService {
 
     public List<Object> getAllDockerContainers() {
-        String output = ShellCommandExecutor.executeShellCommand("docker ps -a --format '{{json .}}'");
+        String output = ShellCommandExecutor.executeShellCommand(Constants.DOCKER_PS_JSON);
         String[] lines = output.split("\\r?\\n");
         ObjectMapper mapper = new ObjectMapper();
         List<Object> containers = new ArrayList<>();

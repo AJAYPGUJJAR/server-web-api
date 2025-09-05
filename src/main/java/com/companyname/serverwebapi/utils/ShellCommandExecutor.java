@@ -6,9 +6,7 @@ import java.io.InputStreamReader;
 
 public final class ShellCommandExecutor {
 
-    private ShellCommandExecutor() {
-        // To Prevent instantiation
-    }
+    private ShellCommandExecutor() {}
 
     public static String executeShellCommand(String command) {
         ProcessBuilder processBuilder = new ProcessBuilder();
